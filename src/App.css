@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Form styling */
+body{
+  background-color: #edece8
+}
+
+.main-container{
+  height: 640px;
+  width: 360px;
+  /* border: 2px solid black; */
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* border: 5px solid #FFFF00; */
+}
+.logo-container{
+  height: 174px;
+}
+.logo-box{
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);}
