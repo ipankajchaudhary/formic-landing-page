@@ -97,7 +97,7 @@ body{
   margin-right: 32px;
 }
 .form-text{
-  /* font-family: Aileron; */
+  /* font-family: Roboto; */
   font-weight: 700;
   color: #63B4FC;
   text-align: left;
@@ -116,6 +116,21 @@ body{
 }
 .inner-container:not(:first-child){
   padding-top: 10px;
+}
+
+.imp{
+  width: 6px;
+  image-rendering: pixelated;
+  vertical-align: super;
+}
+
+.oi{
+  width: 11.67px;
+  height: 11.67px;
+  position: relative;
+  bottom: -4px;
+  right: 1px;
+  image-rendering: pixelated;
 }
 
 .error{
@@ -151,7 +166,9 @@ input::-webkit-inner-spin-button {
 .select{
   appearance: none;
 }
-
+input:-webkit-autofill{
+  -webkit-text-fill-color: var(--main) !important;
+}
 
 ::placeholder {
   color: var(--main);
@@ -161,15 +178,12 @@ input:focus, textarea:focus, select:focus, .select, .btn:focus{
   box-shadow: none;
   background-color: none;
 }
-.btn:hover{
-  color:var(--main);
-  text-decoration: none;
-}
+
 .show{
   width: 103%;
   border-radius: 22px;
-  color: rgb(255, 189, 189);
-  border: 1px solid;
+  color: #a1a1a1;
+  border: 1px solid #a1a1a1;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom: none;
@@ -177,11 +191,12 @@ input:focus, textarea:focus, select:focus, .select, .btn:focus{
 .fa{
   position: relative;
   right: -190px;
+  color: #a1a1a1;
 }
 .dropdown-menu{
   position: relative;
   top: 37px;
-  border: 1px solid var(--main);
+  border: 1px solid #a1a1a1;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 22px;
@@ -197,7 +212,7 @@ input:focus, textarea:focus, select:focus, .select, .btn:focus{
 }
 
 .dropdown-menu li:hover{
-  color: --var(main);
+  color: #a1a1a1;
   /* background-color: black; */
 }
 .btn{
@@ -206,14 +221,24 @@ input:focus, textarea:focus, select:focus, .select, .btn:focus{
 .dropdown-toggle::after {
   display: none;
 }
+
 .dropdown-item{
   font-weight: 600;
-  color: var(--main);
+  color: #a1a1a1;
   padding-left: 1px;
   font-size: 14px;
   width: 232px;
   margin-left: 23px;
   border-bottom: 1px solid #a1a1a1;
+}
+.dropdown-item:hover{
+  color: #a1a1a1;
+}
+.dropdown-toggle:hover{
+  color: var(--main);
+}
+.show:hover{
+  color: #a1a1a1;
 }
 .first-option{
   border-top: 1px solid #a1a1a1 ;
@@ -231,4 +256,8 @@ input:focus, textarea:focus, select:focus, .select, .btn:focus{
   color: white;
   font-size: 18px;
   font-weight: 700;
+}
+.footer{
+  position: relative;
+  bottom: -48px;
 }
