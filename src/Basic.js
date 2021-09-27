@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import blue from "./logo/blue.png";
@@ -23,34 +23,45 @@ const Basic = () => {
     const handleupdown = () => {
         setup(!up)
         setshow(!show)
+        setlanguage('English')
     }
     const handlehindi = () => {
         setlanguage('Hindi')
+        setshow(!show)
     }
     const handlemarathi = () => {
         setlanguage('Marathi')
+        setshow(!show)
+
     }
     const handlebengali = () => {
         setlanguage('Bengali')
+        setshow(!show)
     }
+    const InitialValues = {
+            Name: "",
+            Designation: "",
+            Language: language  
+    }
+
     const SignupSchema = Yup.object().shape({
         Name: Yup.string()
             .min(2, "Too Short!")
             .max(50, "Too Long!")
             .required("Enter name"),
-        Designation: Yup.string()
-            .min(2, "Too Short!")
-            .max(50, "Too Long!")
-            .required("Enter valid number"),
+        Designation: Yup.number()
+            .typeError("Enter valid number")
+        .min(0, "Enter valid number")
+        .required("Enter valid number"),
     });
 
-
+    console.log(language)
     const CustomInputComponent = (props) => (
-        <>
-{/*            <input className="my-custom-input" type="text" {...props} />
-    */}            <div className="dropdown" {...props}>
+
+        
+            <div className="dropdown" {...props}>
                 <button className={show ? "btn dropdown-toggle select show" : "btn dropdown-toggle select" }type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" onClick={handleupdown}>
-                    {language}
+                    {!show ? language : "English"}
                     {" "}
                     {up ? <i className="fas fa-chevron-up fa"></i> : <i className="fas fa-chevron-down fa"></i>}
                     
@@ -61,9 +72,10 @@ const Basic = () => {
                     <li><button className="dropdown-item btn bg-transparent " type="button" onClick={handlebengali}>Bengali</button></li>
                 </ul>
             </div>
-        </>
+      
     );
     return (
+        <>
         <div className="main-container">
             <div className="logo-container">
                 <div className="logo-box">
@@ -92,11 +104,7 @@ const Basic = () => {
                 </div>
             </div>
             <Formik
-                initialValues={{
-                    Name: "",
-                    Designation: "",
-                    Language: language
-                }}
+                initialValues={InitialValues}
                 validationSchema={SignupSchema}
                 onSubmit={(values) => {
                     // same shape as initial values
@@ -132,7 +140,8 @@ const Basic = () => {
                 )}
             </Formik>
             
-        </div>
+            </div>
+            </>
     );
 
 };

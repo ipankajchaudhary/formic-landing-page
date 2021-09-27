@@ -143,6 +143,11 @@ border-radius: 22px;
   font-weight: 600;
   padding-left: 24px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .select{
   appearance: none;
 }
